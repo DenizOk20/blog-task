@@ -9,7 +9,7 @@ type LinkItem = {
 export const NavLinks = () => {
   const links: LinkItem[] = [
     { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Blog', href: '/blog?title=Blog List' },
     { name: 'Single Post', href: '/single-post' },
     { name: 'Pages', href: '/pages' },
     { name: 'Contact', href: '/contact' },

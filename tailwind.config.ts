@@ -16,7 +16,8 @@ export default {
           primary: "#3B3C4A",
           secondary: "#696A75",
           head: "#181A2A",
-          initial: "#FFFFFF"
+          initial: "#FFFFFF",
+          dark: "#FFFFFF",
         }
       },
     },

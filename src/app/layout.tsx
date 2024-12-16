@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-5 sm:px-10 md:px-20 lg:px-40 xl:px-60 flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
       >
         <Providers>
           <Navbar/>

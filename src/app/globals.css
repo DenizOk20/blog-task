@@ -28,8 +28,12 @@ body {
   @apply flex items-center
 }
 
-.dark{
-  @apply bg-[#181A2A]
+.dark{  
+  @apply bg-[#181A2A] 
+}
+
+.dark h1, .dark h2, .dark h3, .dark span, .dark p {
+  @apply text-white;
 }
 
 .light{
