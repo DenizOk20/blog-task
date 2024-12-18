@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono ,Plus_Jakarta_Sans,Work_Sans} from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
-import { Navbar } from "@/components";
+import { Footer, Navbar } from "@/components";
+
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
+  subsets: ["latin"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta-sans",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${workSans.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
       >
         <Providers>
           <Navbar/>
           {children}
+          <Footer />
         </Providers>
     
       </body>

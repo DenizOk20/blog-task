@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+        plus: ['var(--font-jakarta-sans)'],
+        worksans:['var(--font-work-sans)']
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
