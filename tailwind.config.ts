@@ -13,7 +13,8 @@ export default {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],
         plus: ['var(--font-jakarta-sans)'],
-        worksans:['var(--font-work-sans)']
+        worksans:['var(--font-work-sans)'],
+        sourceSerif: ['var(--font-source-serif)']
       },
       colors: {
         background: "var(--background)",

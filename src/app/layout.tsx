@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono ,Plus_Jakarta_Sans,Work_Sans} from "next/font/google";
+import { Geist, Geist_Mono ,Plus_Jakarta_Sans,Work_Sans, Source_Serif_4} from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { Footer, Navbar } from "@/components";
+
+
+const sourceSerifPro = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+})
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${workSans.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${workSans.variable} ${sourceSerifPro.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
       >
         <Providers>
           <Navbar/>
