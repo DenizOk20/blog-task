@@ -1,12 +1,12 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import FirstBlog, { Post, User } from './FirstBlog'
 import BlogCard from './BlogCard'
 
 export default function BlogList() {
 
   const [posts,setPosts] = useState<Post[]>([])
-  const [user,setUser] = useState<User | null>(null)
+  const [users, setUsers] = useState<Record<number, User | null>>({});
 
   const getData = async () => {
     const res = await fetch("http://localhost:3000/api/posts")
@@ -18,29 +18,34 @@ export default function BlogList() {
     getData();
   }, []);
 
-  const getUser = async (id:number): Promise<User | null> => {
-    const res = await fetch(`http://localhost:3000/api/users/${id}`)
-    const data = await res.json()
-    setUser(data)
-    return data
-  }
+  const getUser = useCallback(async (id: number) => {
+    if (users[id]) return; 
+    const res = await fetch(`http://localhost:3000/api/users/${id}`);
+    const data = await res.json();
+    setUsers((prev) => ({ ...prev, [id]: data }));
+  }, [users]);
+
 
   useEffect(() => {
-    if(posts.length > 0){
-      getUser(posts[0].authorId)
-    }
-  },[posts])
-
-  console.log(posts[0])
+    posts.forEach((post) => {
+      getUser(post.authorId);
+    });
+  }, [posts, getUser]);
 
   return (
-    <div className='flex flex-col gap-10'>
-      <FirstBlog firstPost={posts[0]} author={user}/>
-      <div className='flex flex-wrap gap-5'>
-        {posts.map((post) => (
-          <BlogCard key={post.title} post={post} author={user} />
+    <div className="flex flex-col gap-10">
+      {posts.length > 0 && (
+        <FirstBlog firstPost={posts[0]} author={users[posts[0].authorId]} />
+      )}
+      <div className="flex flex-wrap gap-5">
+        {posts.slice(1).map((post) => (
+          <BlogCard
+            key={post.id}
+            post={post}
+            author={users[post.authorId]}
+          />
         ))}
       </div>
     </div>
-  )
+  );
 }

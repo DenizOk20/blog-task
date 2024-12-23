@@ -1,18 +1,52 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { Post, User } from "../BlogList/FirstBlog";
 
 export default function SinglePost() {
+
+  const [user,setUser] = useState<User | null>(null)
+
+
+  const [post,setPost] = useState<Post | null>(null)
+
+  const paths = usePathname()
+  const pathNames = paths.split("/").filter((path) => path);
+  const id = pathNames[pathNames.length - 1]
+
+  const getData = async (id:number) => {
+    const res = await fetch(`http://localhost:3000/api/posts/${id}`)
+    const data = await res.json();
+    setPost(data)
+    return data
+  }
+
+  useEffect(() => {
+    getData(parseInt(id))
+  },[id])
+
+  const getUser = async (id: number | undefined) => {
+    const res = await fetch(`http://localhost:3000/api/users/${id}`);
+    const data = await res.json();
+    setUser(data)
+    return res
+  }
+
+  useEffect(() => {
+    getUser(post?.authorId)
+  },[post?.authorId])
+
 
   return (
     <div className="flex flex-col items-center gap-8">
       <div className="flex flex-col items-start md:w-[800px] gap-5">
         <div className="flex flex-col gap-4">
           <span className="bg-[#4B6BFB] text-white w-fit py-[6px] px-[12px] sm:text-sm md:text-base min-w-[97px] flex justify-center items-center max-h-7 rounded-md">
-            Technology
+            {post?.category}
           </span>
           <h2 className="text-text-head font-semibold text-[36px]">
-            The Impact of Technology on the Workplace: How Technology is
-            Changing
+            {post?.title}
           </h2>
         </div>
         <div className="flex items-center gap-2 md:gap-3 lg:gap-5">
@@ -24,27 +58,23 @@ export default function SinglePost() {
               height={16}
               className="md:w-9 md:h-9 bg-black rounded-3xl border border-gray-400"
             />
-            <span>Tracey Wilson</span>
+            <span>{user?.name}</span>
           </div>
-          <span>August 20, 2022</span>
+          <span>{post?.createdAt.substring(0,10)}</span>
         </div>
       </div>
       <div className="flex flex-col items-start max-w-[800px]">
-        <Image
-          src="/single-post1.png"
+        {post?.image && <Image
+          src={post.image}
           alt="single-post"
           width={800}
           height={462}
-        />
+        />}
         <br />
         <p className="max-w-[800px] text-text-primary font-sourceSerif text-xl">
-          Traveling is an enriching experience that opens up new horizons,
-          exposes us to different cultures, and creates memories that last a
-          lifetime. However, traveling can also be stressful and overwhelming,
-          especially if you don&apos;t plan and prepare adequately. In this blog
-          article, we&apos;ll explore tips and tricks for a memorable journey
-          and how to make the most of your travels.
-          <br />
+          {post?.content}
+        </p>
+          {/* <br />
           <br />
           One of the most rewarding aspects of traveling is immersing yourself
           in the local culture and customs. This includes trying local cuisine,
@@ -123,7 +153,7 @@ export default function SinglePost() {
           your valuables safe and secure and to be aware of your surroundings at
           all times.
         </p>
-        <br />
+        <br /> */}
       </div>
     </div>
   );
