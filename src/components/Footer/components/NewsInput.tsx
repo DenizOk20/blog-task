@@ -1,15 +1,35 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 export default function NewsInput() {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+    e.preventDefault()
+    try {
+      const res = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setEmail("");
+        alert("Kayıt Başarılı!")
+      } else {
+        const errorData = await res.json();
+        alert(errorData.error)
+      }
+    } catch (error) {
+      console.error("Error subscribing email:", error);
+    }
+  };
+
   return (
     <div className="min-w-[380px]">
       <form
         className="flex flex-col items-center gap-2"
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("test submit");
-        }}
+        onSubmit={handleSubmit}
       >
         <div className="relative w-[320px] min-h-12 flex items-center">
           <div className="absolute end-3 flex items-center ps-3 pointer-events-none">
@@ -37,12 +57,18 @@ export default function NewsInput() {
           <input
             type="email"
             id="default-search"
+            onChange={(e) => setEmail(e.target.value)}
             className="block w-full max-h-[48px] min-w-36 p-4 text-text-primary text-sm placeholder:text-[#A1A1AA] border border-gray-300 rounded-lg bg-[#F4F4F5] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-[#52525B] dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none"
             placeholder="Your Email"
             required
           />
         </div>
-        <button className="w-[320px] text-text-initial h-12 bg-[#4B6BFB]" type="submit">Subscribe</button>
+        <button
+          className="w-[320px] text-text-initial h-12 bg-[#4B6BFB]"
+          type="submit"
+        >
+          Subscribe
+        </button>
       </form>
     </div>
   );
