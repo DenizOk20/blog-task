@@ -9,7 +9,7 @@ export default function BlogList() {
   const [users, setUsers] = useState<Record<number, User | null>>({});
 
   const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/posts")
+    const res = await fetch("https://peakeye-blog-j7vjncf3k-denizok20s-projects.vercel.app/api/posts")
     const data = await res.json()
     setPosts(data)
     return data
@@ -20,7 +20,7 @@ export default function BlogList() {
 
   const getUser = useCallback(async (id: number) => {
     if (users[id]) return; 
-    const res = await fetch(`http://localhost:3000/api/users/${id}`);
+    const res = await fetch(`https://peakeye-blog-j7vjncf3k-denizok20s-projects.vercel.app/api/users/${id}`);
     const data = await res.json();
     setUsers((prev) => ({ ...prev, [id]: data }));
   }, [users]);

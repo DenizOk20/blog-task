@@ -27,7 +27,7 @@ export default function SinglePost() {
   },[id])
 
   const getUser = async (id: number | undefined) => {
-    const res = await fetch(`http://localhost:3000/api/users/${id}`);
+    const res = await fetch(`https://peakeye-blog-j7vjncf3k-denizok20s-projects.vercel.app//api/users/${id}`);
     const data = await res.json();
     setUser(data)
     return res
