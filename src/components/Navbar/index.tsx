@@ -7,8 +7,8 @@ import SearchInput from "./components/SearchInput";
 import { NavMenu } from "./components/Menu";
 import { useTheme } from "next-themes";
 
-function Navbar() {
-
+function Navbar({session}) {
+  console.log(session)
   const {theme} = useTheme()
   const logoSrc = theme === "dark" ? "/dark-logo.png" : "/logo.png";
   return (
@@ -19,7 +19,7 @@ function Navbar() {
         </div>
         <div className="hidden md:flex flex-row md:gap-[18px] lg:gap-[21px] w-[100%]">
           <div className="flex flex-row md:gap-[32px] lg:gap-[40px] xl:px-32">
-            <NavLinks/>
+            <NavLinks session={session}/>
           </div>
           <div className="flex items-center md:gap-[24px] lg:gap-[40px]">
              <SearchInput/>

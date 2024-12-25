@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { db } from "../../../../../lib/db";
 
-export const GET = async (req: Request, { params }: { params: { id: string } }) => {
+export const GET = async (req: Request, { params }: { params: Promise<{ id: string }> }) => {
   try {
-    
-    const id = parseInt(params.id);
+    const slug = (await params).id;
+    const id = parseInt(slug)
     if (isNaN(id)) {
       return NextResponse.json(
         { error: "Invalid ID parameter" },

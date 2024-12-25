@@ -18,7 +18,7 @@ export default function BlogCard({post,author}:BlogCardProps) {
           alt="blogImg"
           width={360}
           height={240}
-          className="w-full object-cover max-h-[240px] h-full"
+          className="w-full object-cover max-h-[240px] h-full max-w-[360px]"
         />
       </div>
       <div className="p-2 flex flex-col gap-5">

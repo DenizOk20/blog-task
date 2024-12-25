@@ -10,9 +10,9 @@ export default function BlogList() {
 
   const getData = async () => {
     const res = await fetch("http://localhost:3000/api/posts")
-    .then(res => res.json())
-    setPosts(res)
-    return res
+    const data = await res.json()
+    setPosts(data)
+    return data
   }
   useEffect(() => {
     getData();
