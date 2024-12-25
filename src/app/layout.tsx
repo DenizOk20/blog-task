@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${workSans.variable} ${sourceSerifPro.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col gap-8 items-center dark:bg-[#181A2A]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${workSans.variable} ${sourceSerifPro.variable} antialiased px-5 sm:px-10 md:px-[100px] lg:px-40 xl:px-[108px] flex flex-col w-fit md:contents gap-8 items-center dark:bg-[#181A2A]`}
       >
         <Providers>
           <Navbar/>

@@ -6,8 +6,8 @@ import DocsLinks from "./components/DocsLinks";
 export default function Footer() {
   
   return (
-    <div className="flex flex-col gap-16">
-      <div className="flex gap-5 flex-wrap justify-center lg:justify-start">
+    <div className="flex flex-col gap-16 justify-self-center pt-16 pb-4 max-w-[1216px]">
+      <div className="flex gap-5 flex-wrap justify-center lg:justify-start max-w-[1216px]">
         <div className="flex flex-col gap-6">
           <div className="max-w-[289px] flex flex-col gap-3">
             <h2 className={`font-semibold font-plus`}>About</h2>

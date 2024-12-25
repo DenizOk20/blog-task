@@ -16,7 +16,7 @@ export const NavMenu = ({session} : {session: Session | null}) => {
       <button
         onClick={toggleMenu}
         aria-label="Toggle menu"
-        className="p-2 focus:outline-none"
+        className="p-2 focus:outline-none dark:bg-white"
       >
         <Image src="/menu.png" alt="Menu Icon" width={24} height={24} />
       </button>

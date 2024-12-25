@@ -25,7 +25,7 @@ export default function FooterLinks() {
   ];
 
   return (
-    <div className="flex gap-20 justify-center w-[492px] font-plus">
+    <div className="flex gap-20 justify-center w-[487px] font-plus">
       <div className="flex flex-col gap-6">
         <h2 className="font-semibold">Quick Link</h2>
         <div className="flex flex-col gap-2">
