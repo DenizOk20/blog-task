@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { Session } from "next-auth";
 
 type LinkItem = {
   name: string;
@@ -9,7 +10,7 @@ type LinkItem = {
   onClick?: () => void;
 };
 
-export const NavLinks = ({ session }) => {
+export const NavLinks = ({ session }: {session: Session | null}) => {
   
   const handleSignOut = async () => {
     await signOut({redirectTo:"/"});

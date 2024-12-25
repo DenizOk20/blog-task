@@ -14,9 +14,9 @@ export default async function LoginPage() {
   console.log(session);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex-col gap-5 h-[calc(100vh_-_100px)] flex items-center justify-center">
       <form action={handleGithubLogin}>
-        <button class="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 min-w-[200px]">
+        <button className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 min-w-[200px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6"
@@ -29,7 +29,7 @@ export default async function LoginPage() {
         </button>
       </form>
       <form action={handleGoogleLogin}>
-        <button class="px-4 py-2 border flex gap-2 min-w-[200px] border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+        <button className="px-4 py-2 border flex gap-2 min-w-[200px] border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
           <Image
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             width={24}

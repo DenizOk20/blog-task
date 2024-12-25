@@ -6,11 +6,13 @@ import { NavLinks } from "./components/NavLinks";
 import SearchInput from "./components/SearchInput";
 import { NavMenu } from "./components/Menu";
 import { useTheme } from "next-themes";
+import { Session } from "next-auth";
 
-function Navbar({session}) {
-  console.log(session)
+function Navbar({session}:{session: Session | null}) {
+
   const {theme} = useTheme()
   const logoSrc = theme === "dark" ? "/dark-logo.png" : "/logo.png";
+  
   return (
     <div className="flex justify-center flex-col gap-8 min-h-[100px] md:items-center w-[100%]">
       <div className="flex flex-row items-center justify-between md:gap-[70px] lg:gap-[116px] max-w-[1218px]">

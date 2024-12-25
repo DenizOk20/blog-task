@@ -32,7 +32,7 @@ export default function Breadcrumbs({
       </div>
       <ul className={containerClasses}>
         <li className={listClasses}>
-          <Link className="dark:text-text-primary" href={"/"}>{homeElement}</Link>
+          <Link className="dark:text-text-dark text-text-primary" href={"/"}>{homeElement}</Link>
         </li>
         {pathNames.length > 0 && separator}
         {pathNames.map((link, index) => {

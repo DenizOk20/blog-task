@@ -30,7 +30,7 @@ export default function FooterLinks() {
         <h2 className="font-semibold">Quick Link</h2>
         <div className="flex flex-col gap-2">
           {QuickLinks.map((link) => (
-            <Link key={link.name} href={link.href}>{link.name}</Link>
+            <Link key={link.name} href={link.href} className="dark:text-text-dark">{link.name}</Link>
           ))}
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function FooterLinks() {
         <h2 className="font-semibold font-plus">Category</h2>
         <div className="flex flex-col gap-2">
         {Category.map((cat) => (
-            <Link key={cat.name} href={cat.href}>{cat.name}</Link>
+            <Link key={cat.name} href={cat.href} className="dark:text-text-dark">{cat.name}</Link>
           ))}
         </div>
       </div>

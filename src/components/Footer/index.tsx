@@ -3,7 +3,6 @@ import FooterLinks from "./components/links";
 import NewsInput from "./components/NewsInput";
 import Image from "next/image";
 import DocsLinks from "./components/DocsLinks";
-
 export default function Footer() {
   
   return (

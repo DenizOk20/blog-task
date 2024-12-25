@@ -19,7 +19,7 @@ export default function DocsLinks() {
         {
             legalDocs.map((doc) => (
                 <div key={doc.name} className='flex gap-4'>
-                    <Link href={doc.href} className='text-text-primary'>{doc.name}</Link>
+                    <Link href={doc.href} className='text-text-primary dark:text-text-dark'>{doc.name}</Link>
                     {doc.name !== legalDocs[legalDocs.length -1].name && <span className='mr-4 text-[#E8E8EA]'>|</span>}
                 </div>
             ))
