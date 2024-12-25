@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import SearchInput from "./SearchInput";
 import { NavLinks } from "./NavLinks";
 import Image from "next/image";
+import { Session } from "next-auth";
 
-export const NavMenu = () => {
+export const NavMenu = ({session} : {session: Session | null}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -24,7 +25,7 @@ export const NavMenu = () => {
       {isOpen && (
         <div className="absolute flex flex-col gap-3 top-full right-0 w-[60vw] bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 z-50">
          <SearchInput/>
-          <NavLinks />
+          <NavLinks session={session} />
         </div>
       )}
     </div>

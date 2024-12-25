@@ -33,7 +33,7 @@ function Navbar({session}:{session: Session | null}) {
         {/* mobile */}
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
-          <NavMenu />
+          <NavMenu session={session}/>
         </div>
       </div>
     </div>
