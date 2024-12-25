@@ -8,7 +8,7 @@ export default function NewsInput() {
 
     e.preventDefault()
     try {
-      const res = await fetch("https://peakeye-blog-j7vjncf3k-denizok20s-projects.vercel.app/api/newsletter", {
+      const res = await fetch("https://peakeye-blog-denizok20s-projects.vercel.app/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
